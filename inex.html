@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Types Example</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css"> 
+
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Internal CSS for the section */
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Internal CSS for a class */
+        .highlight {
+            color: #fff;
+            background-color: #007BFF;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section using internal CSS -->
+    <section>
+        <h2>PET GROOMING</h2>
+        <p>Regular grooming keeps your pet healthy and happy.</p>
+        <p>It helps with: <span class="highlight">Reducing shedding and tangles</span></p>
+    </section>
+
+    <!-- Inline CSS Example -->
+    <section style="background-color: #e9f7fd; padding: 20px;">
+        <h2 style="color: #333; text-align: center;">Customer Testimonials</h2>
+        <p style="color: #555;">"My dog always looks amazing after his grooming session! The team is friendly and professional."</p>
+    </section>
+
+    <!-- External CSS Example -->
+    <section>
+        <h2>Our Grooming Services</h2>
+        <p>Clipping ,trimming, Nail cutting and ear cleaning</p>
+    </section>
+
+</body>
+</html>

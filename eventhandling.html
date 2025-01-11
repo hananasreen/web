@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Event Handling Example</title> 
+<style> 
+body { 
+font-family: Arial, sans-serif; 
+background-color: #f2f2f2; 
+} 
+#container { 
+width: 80%; 
+margin: 40px auto; 
+background-color: #fff; 
+border: 1px solid #ddd; 
+border-radius: 10px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+} 
+#box { 
+width: 200px; 
+height: 200px; 
+background-color: #fff; 
+border: 1px solid #ddd; 
+border-radius: 10px; 
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+cursor: pointer; 
+margin: 20px auto; 
+} 
+#box:hover { 
+background-color: #f0f0f0; 
+} 
+#box:active { 
+transform: scale(0.9); 
+} 
+#message { 
+font-size: 24px; 
+font-weight: bold; 
+color: #00698f; 
+text-align: center; 
+margin-bottom: 20px; 
+} 
+#buttons { 
+text-align: center; 
+margin-bottom: 20px; 
+} 
+button { 
+width: 100px; 
+height: 40px; 
+background-color: #4CAF50; 
+color: #fff; 
+border: none; 
+border-radius: 5px; 
+cursor: pointer; 
+margin: 0 10px; 
+} 
+button:hover { 
+background-color: #3e8e41; 
+} 
+</style></head> 
+<body> 
+<div id="container"> 
+<div id="box"></div> 
+<div id="message"></div> 
+<div id="buttons"> 
+<button id="change-color-btn">Change Color</button> 
+<button id="change-size-btn">Change Size</button> 
+<button id="reset-btn">Reset</button> 
+</div></div> 
+<script> 
+const box = document.getElementById("box"); 
+const message = document.getElementById("message"); 
+const changeColorBtn = document.getElementById("change-color-btn"); 
+const changeSizeBtn = document.getElementById("change-size-btn"); 
+const resetBtn = document.getElementById("reset-btn"); 
+let boxColor = "#fff"; 
+let boxSize = "200px"; 
+box.addEventListener("mouseover", function() { 
+message.innerHTML = "Mouse over!"; 
+message.style.color = "#008000"; 
+}); 
+box.addEventListener("mouseout", function() { 
+message.innerHTML = "Mouse out!"; 
+message.style.color = "#ff0000"; 
+}); 
+box.addEventListener("mousedown", function() { 
+message.innerHTML = "Mouse down!"; 
+message.style.color = "#0000ff"; 
+}); 
+box.addEventListener("mouseup", function() { 
+message.innerHTML = "Mouse up!"; 
+message.style.color = "#008000"; 
+}); 
+box.addEventListener("click", function() { 
+message.innerHTML = "Box clicked!"; 
+message.style.color = "#ff0000"; 
+}); 
+changeColorBtn.addEventListener("click", function() { 
+boxColor = getRandomColor(); 
+box.style.backgroundColor = boxColor; 
+}); 
+changeSizeBtn.addEventListener("click", function() { 
+boxSize = getRandomSize(); 
+box.style.width = boxSize; 
+box.style.height = boxSize; 
+}); 
+resetBtn.addEventListener("click", function() { 
+boxColor = "#fff"; 
+boxSize = "200px"; 
+box.style.backgroundColor = boxColor; 
+box.style.width = boxSize; 
+box.style.height = boxSize; 
+}); 
+function getRandomColor() { 
+const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]; 
+return colors[Math.floor(Math.random() * colors.length)]; 
+} 
+function getRandomSize() { 
+const sizes = ["100px", "150px", "200px", "250px", "300px"]; 
+return sizes[Math.floor(Math.random() * sizes.length)]; 
+} 
+</script> 
+</body> 
+</html>

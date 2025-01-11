@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Examination</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+    h1 {
+      color: #333;
+    }
+    .question-box {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      width: 60%;
+      transition: background-color 0.3s ease;
+    }
+    .question-box p {
+      font-size: 18px;
+    }
+    .answer-options {
+      margin: 10px 0;
+    }
+    .answer-options input {
+      margin-right: 10px;
+    }
+    #submitBtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    #submitBtn:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Online Examination</h1>
+
+  <div id="examContainer">
+    <div class="question-box" id="question1">
+      <p>Question 1: What is the capital of England?</p>
+      <div class="answer-options">
+        <input type="radio" name="q1" value="Paris" id="q1a"> Paris
+        <input type="radio" name="q1" value="London" id="q1b"> London
+        <input type="radio" name="q1" value="Berlin" id="q1c"> Berlin
+      </div>
+    </div>
+
+    <div class="question-box" id="question2">
+      <p>Question 2: What is 1 + 2?</p>
+      <div class="answer-options">
+        <input type="radio" name="q2" value="3" id="q2a"> 3
+        <input type="radio" name="q2" value="4" id="q2b"> 4
+        <input type="radio" name="q2" value="5" id="q2c"> 5
+      </div>
+    </div>
+
+    <div class="question-box" id="question3">
+        <p>Question 3: What is 3*2?</p>
+        <div class="answer-options">
+          <input type="radio" name="q3" value="4" id="q3a"> 4
+          <input type="radio" name="q3" value="6" id="q3b"> 6
+          <input type="radio" name="q3" value="10" id="q3c"> 10
+        </div>
+      </div>
+
+    <button id="submitBtn" onclick="submitExam()">Submit Exam</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Set initial background color
+    document.body.style.backgroundColor = "#f0f8ff"; // Light blue
+
+    // Function to change background color based on user actions
+    function changeBackgroundColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+    // Function to calculate the score and submit the exam
+    function submitExam() {
+      let score = 0;
+      let totalQuestions = 3;
+      
+      // Check answers for Question 1
+      const q1Answer = document.querySelector('input[name="q1"]:checked');
+      if (q1Answer && q1Answer.value === 'London') {
+        score++;
+      }
+
+      // Check answers for Question 2
+      const q2Answer = document.querySelector('input[name="q2"]:checked');
+      if (q2Answer && q2Answer.value === '3') {
+        score++;
+      }
+
+      // Check answers for Question 3
+      const q3Answer = document.querySelector('input[name="q3"]:checked');
+      if (q3Answer && q3Answer.value === '6') {
+        score++;
+      }
+
+      // Show result and change background color
+      const resultElement = document.getElementById('result');
+      if (score === totalQuestions) {
+        resultElement.innerHTML = `Congratulations! You scored ${score}/${totalQuestions}.`;
+        resultElement.style.color = "green";  // Green for success
+        changeBackgroundColor('#d4edda');  // Light green background
+      } else {
+        resultElement.innerHTML = `You scored ${score}/${totalQuestions}. Try again!`;
+        resultElement.style.color = "red";  // Red for failure
+        changeBackgroundColor('#f8d7da');  // Light red background
+      }
+    }
+
+    // Change background color when the exam starts
+    window.onload = function() {
+      changeBackgroundColor('#fff3cd'); // Yellowish background on page load
+    };
+  </script>
+
+</body>
+</html>

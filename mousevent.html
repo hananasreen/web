@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events with Color Changing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .box p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="box" id="box">
+  </div>
+
+  <script>
+    const body = document.body;
+    const box = document.getElementById('box');
+
+
+
+    // Mouse out event
+    box.addEventListener('mouseout', () => {
+      box.style.backgroundColor = '#f0f0f0'; // Change back to original
+    });
+
+   
+    // Mouse move event
+    body.addEventListener('mousemove', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+      body.style.backgroundColor = `rgb(${x % 255}, ${y % 255}, 150)`; // Change background color based on mouse position
+    });
+
+  </script>
+
+</body>
+</html>
